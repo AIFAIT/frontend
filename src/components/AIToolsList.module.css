@@ -1,0 +1,19 @@
+.toolsList {
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+  }
+  
+  .toolItem {
+    background-color: #f0f0f0; /* Light grey background */
+    margin-bottom: 8px; /* Adds some space between list items */
+    padding: 10px; /* Adds some padding inside each list item */
+    border-radius: 4px; /* Rounds the corners of the list items */
+  }
+  
+  .filterInput {
+    margin-bottom: 20px; /* Adds space below the filter input box */
+    padding: 8px; /* Adds some padding inside the input box */
+    border: 1px solid #ccc; /* Adds a light border to the input box */
+    border-radius: 4px; /* Rounds the corners of the input box */
+  }
+  
