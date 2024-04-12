@@ -1,6 +1,7 @@
 export interface Tool {
     id: number;
-    name: string;
+    title: string;
+    url: string;
+    description: string;
     category: string;
-  }
-  
+}

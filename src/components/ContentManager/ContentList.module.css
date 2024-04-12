@@ -1,0 +1,33 @@
+/* ContentList.module.css */
+.contentItem {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .contentTitle {
+    color: #333;
+    font-size: 1.5em;
+  }
+  
+  .contentDescription {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .contentLink {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .contentAuthor {
+    font-style: italic;
+  }
+  
+  .contentDate {
+    color: #999;
+    font-size: 0.9em;
+  }
+  
