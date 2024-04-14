@@ -1,0 +1,18 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  
+  .card p {
+    margin: 0;
+  }

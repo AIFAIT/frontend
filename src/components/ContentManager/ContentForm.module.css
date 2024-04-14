@@ -1,38 +1,39 @@
 /* ContentForm.module.css */
-.formContainer {
+
+.contentForm {
+    max-width: 500px; /* Adjust width as needed */
+    margin: auto;
+  }
+  
+  .formGroup {
     display: flex;
     flex-direction: column;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .label {
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .input,
-  .select,
-  .textarea,
-  .button {
-    padding: 8px;
     margin-bottom: 20px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
   }
   
-  .button {
-    background-color: #007BFF;
+  .formControl {
+    padding: 10px;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    background-color: #007bff; /* Use your brand color */
     color: white;
-    font-size: 16px;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
   }
   
-  .button:hover {
-    background-color: #0056b3;
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .contentForm {
+      width: 100%; /* Full width on small screens */
+    }
+  
+    .formControl,
+    .submitButton {
+      font-size: 14px; /* Smaller font size on small screens */
+    }
   }
   

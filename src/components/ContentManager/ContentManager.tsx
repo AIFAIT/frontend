@@ -1,24 +1,42 @@
-import React from 'react';
+// src/components/ContentManager/ContentManager.tsx
+
+import React, { useState } from 'react';
 import ContentForm from './ContentForm';
 import ContentList from './ContentList';
-import styles from './ContentManager.module.css';  // Assume you have or will create basic styling
+import { ContentEntry } from '../../types/ContentEntry';
+import { formConfig } from '../../config/formConfig';
 
-function ContentManager() {
+const ContentManager: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [contentEntries, setContentEntries] = useState<ContentEntry[]>([]);
+
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleFormSubmit = (newEntry: ContentEntry) => {
+    setContentEntries([...contentEntries, newEntry]);
+  };
+
   return (
     <div>
-      <div className={styles.header}>
-        <h1>Manage Content</h1>
-      </div>
-      <div className={styles.section}>
-        <h2>Create New Entry</h2>
-        <ContentForm />
-      </div>
-      <div className={styles.section}>
-        <h2>Existing Entries</h2>
-        <ContentList />
-      </div>
+      <h2>Content Manager</h2>
+      <select value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="">Select a category</option>
+        {Object.keys(formConfig).map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+      <ContentForm
+        formConfig={formConfig}
+        selectedCategory={selectedCategory}
+        onSubmit={handleFormSubmit}
+      />
+      <ContentList entries={contentEntries} />
     </div>
   );
-}
+};
 
 export default ContentManager;
