@@ -1,6 +1,6 @@
 // src/components/ContentManager/ContentManager.tsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContentForm from './ContentForm';
 import ContentList from './ContentList';
 import { ContentEntry } from '../../types/ContentEntry';
@@ -10,29 +10,31 @@ const ContentManager: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [contentEntries, setContentEntries] = useState<ContentEntry[]>([]);
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(event.target.value);
+  useEffect(() => {
+    const storedEntries = localStorage.getItem('contentEntries');
+    if (storedEntries) {
+      setContentEntries(JSON.parse(storedEntries));
+    }
+  }, []);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
   };
 
   const handleFormSubmit = (newEntry: ContentEntry) => {
-    setContentEntries([...contentEntries, newEntry]);
+    const updatedEntries = [...contentEntries, newEntry];
+    setContentEntries(updatedEntries);
+    localStorage.setItem('contentEntries', JSON.stringify(updatedEntries));
   };
 
   return (
-    <div>
-      <h2>Content Manager</h2>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">Select a category</option>
-        {Object.keys(formConfig).map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
+    <div style={{ padding: '20px' }}>
+      <h2 style={{ marginBottom: '20px' }}>Content Manager</h2>
       <ContentForm
         formConfig={formConfig}
         selectedCategory={selectedCategory}
         onSubmit={handleFormSubmit}
+        onCategoryChange={handleCategoryChange}
       />
       <ContentList entries={contentEntries} />
     </div>
