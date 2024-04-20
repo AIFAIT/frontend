@@ -22,7 +22,11 @@ const ContentManager: React.FC = () => {
   };
 
   const handleFormSubmit = (newEntry: ContentEntry) => {
-    const updatedEntries = [...contentEntries, newEntry];
+    const newEntryWithId: ContentEntry = {
+      ...newEntry,
+      id: Date.now().toString(), // Generate a unique id based on the current timestamp
+    };
+    const updatedEntries = [...contentEntries, newEntryWithId];
     setContentEntries(updatedEntries);
     localStorage.setItem('contentEntries', JSON.stringify(updatedEntries));
   };

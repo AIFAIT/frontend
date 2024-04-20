@@ -1,14 +1,5 @@
-.blogContainer {
-    padding: 20px;
-  }
-  
-  .blogTitle {
-    color: #333;
-    text-align: center;
-  }
-  
-  .blogIntro {
-    color: #666;
-    text-align: center;
-  }
-  
+/* src/components/BlogPage/BlogPage.module.css */
+
+.container {
+  margin-top: 2rem;
+}

@@ -1,5 +1,3 @@
-// src/components/ContentManager/ContentList.tsx
-
 import React from 'react';
 import { ContentEntry } from '../../types/ContentEntry';
 import ContentCard from './ContentCard';

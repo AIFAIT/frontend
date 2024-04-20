@@ -1,8 +1,6 @@
-// src/components/ContentManager/ContentForm.tsx
-
 import React, { useState, useEffect } from 'react';
 import { ContentEntry } from '../../types/ContentEntry';
-import { FormConfig, Field } from '../../config/formConfig';
+import { Field } from '../../config/formConfig'; // Update the import to only include Field
 import {
   Box,
   TextField,
@@ -14,7 +12,7 @@ import {
 } from '@mui/material';
 
 interface ContentFormProps {
-  formConfig: FormConfig;
+  formConfig: Record<string, { fields: Field[] }>; // Update the type to use Record instead of FormConfig
   selectedCategory: string;
   onSubmit: (newEntry: ContentEntry) => void;
   onCategoryChange: (category: string) => void;
@@ -26,34 +24,36 @@ const ContentForm: React.FC<ContentFormProps> = ({
   onSubmit,
   onCategoryChange,
 }) => {
-  /**
-   * State to hold the form data
-   * @type {ContentEntry}
-   */
+  // State to hold the form data
   const [formData, setFormData] = useState<ContentEntry>({
     id: '',
     title: '',
     description: '',
     category: selectedCategory,
+    url: '',
+    image: '',
+    date: '',
+    detail: '',
+    sortOrder: '0',
   });
 
-  /**
-   * Effect hook to update the form data when the selected category changes
-   * Reset the form data when the category changes
-   */
+  // Effect hook to update the form data when the selected category changes
   useEffect(() => {
+    // Reset the form data when the category changes
     setFormData({
       id: '',
       title: '',
       description: '',
       category: selectedCategory,
+      url: '',
+      image: '',
+      date: '',
+      detail: '',
+      sortOrder: '0',
     });
   }, [selectedCategory]);
 
-  /**
-   * Function to handle input changes in the form fields
-   * @param event - Change event from the input fields
-   */
+  // Function to handle input changes in the form fields
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -61,10 +61,7 @@ const ContentForm: React.FC<ContentFormProps> = ({
     setFormData({ ...formData, [name]: value });
   };
 
-  /**
-   * Function to handle form submission
-   * @param event - Form submit event
-   */
+  // Function to handle form submission
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newEntry: ContentEntry = {
@@ -72,43 +69,80 @@ const ContentForm: React.FC<ContentFormProps> = ({
       category: selectedCategory,
     };
     onSubmit(newEntry);
+    // Reset the form data after submission
     setFormData({
       id: '',
       title: '',
       description: '',
       category: selectedCategory,
+      url: '',
+      image: '',
+      date: '',
+      detail: '',
+      sortOrder: '0',
     });
   };
 
-  /**
-   * Render the form fields based on the selected category
-   * @returns {JSX.Element | null} - Rendered form fields or null if no category selected
-   */
+  // Render the form fields based on the selected category and displayInForm flag
   const renderFields = () => {
     if (!selectedCategory || !formConfig[selectedCategory]) {
       return null;
     }
 
-    return formConfig[selectedCategory].fields.map((field: Field) => (
-      <Box key={field.name} mb={2}>
-        <TextField
-          fullWidth
-          variant="outlined"
-          id={field.name}
-          name={field.name}
-          label={field.label}
-          multiline={field.type === 'textarea'}
-          rows={field.type === 'textarea' ? 4 : undefined}
-          value={formData[field.name] || ''}
-          onChange={handleChange}
-          placeholder={field.placeholder}
-        />
-      </Box>
-    ));
+    return formConfig[selectedCategory].fields
+      .filter((field: Field) => field.displayInForm)
+      .map((field: Field) => (
+        <Box key={field.name} mb={2}>
+          {field.type === 'textarea' ? (
+            <TextField
+              fullWidth
+              variant="outlined"
+              multiline
+              rows={4}
+              id={field.name}
+              name={field.name}
+              label={field.label}
+              value={formData[field.name] || ''}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              required={!field.optional}
+            />
+          ) : field.type === 'date' ? (
+            <TextField
+              fullWidth
+              variant="outlined"
+              type="date"
+              id={field.name}
+              name={field.name}
+              label={field.label}
+              value={formData[field.name] || ''}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              required={!field.optional}
+            />
+          ) : (
+            <TextField
+              fullWidth
+              variant="outlined"
+              id={field.name}
+              name={field.name}
+              label={field.label}
+              value={formData[field.name] || ''}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              required={!field.optional}
+            />
+          )}
+        </Box>
+      ));
   };
 
   return (
     <Box p={2}>
+      {/* Category select dropdown */}
       <FormControl fullWidth variant="outlined" margin="normal">
         <InputLabel id="category-label">Category</InputLabel>
         <Select
@@ -125,6 +159,8 @@ const ContentForm: React.FC<ContentFormProps> = ({
           ))}
         </Select>
       </FormControl>
+
+      {/* Form fields */}
       <form onSubmit={handleSubmit}>
         {renderFields()}
         <Button variant="contained" color="primary" type="submit">
