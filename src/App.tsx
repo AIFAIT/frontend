@@ -103,7 +103,7 @@ const App = () => {
           </Toolbar>
         </AppBar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="" element={<Home />} />
           <Route path="/tools" element={<AIToolsList />} />
           <Route path="/manage-content" element={<ContentManager />} />
           <Route path="/articles" element={<ArticlesList />} />
