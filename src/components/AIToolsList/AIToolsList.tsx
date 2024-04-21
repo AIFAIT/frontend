@@ -1,4 +1,6 @@
 // src/components/AIToolsList/AIToolsList.tsx
+// src/components/ArticlesList/ArticlesList.tsx
+// src/components/BlogPage/BlogPage.tsx
 
 import React, { useState, useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
@@ -25,7 +27,8 @@ const AIToolsList: React.FC = () => {
 
   return (
     <Container maxWidth="lg" className={styles.container}>
-      <PageTitle title="Tools" />
+      {/* Add margin to the top of the PageTitle component */}
+      <PageTitle title="Tools" sx={{ mt: 4 }} />
       <Grid container spacing={3}>
         {tools.map(tool => (
           <Grid item xs={12} key={tool.id}>

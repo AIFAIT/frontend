@@ -1,0 +1,21 @@
+/* src/Home/Home.module.css */
+
+.container {
+    padding-top: 2rem;
+  }
+  
+  .title {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .carousel {
+    margin-bottom: 2rem;
+  }
+  
+  .content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }

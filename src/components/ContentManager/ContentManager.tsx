@@ -5,6 +5,7 @@ import ContentForm from './ContentForm';
 import ContentList from './ContentList';
 import { ContentEntry } from '../../types/ContentEntry';
 import { formConfig } from '../../config/formConfig';
+import { Typography, Divider } from '@mui/material';
 
 const ContentManager: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -24,7 +25,7 @@ const ContentManager: React.FC = () => {
   const handleFormSubmit = (newEntry: ContentEntry) => {
     const newEntryWithId: ContentEntry = {
       ...newEntry,
-      id: Date.now().toString(), // Generate a unique id based on the current timestamp
+      id: Date.now().toString(),
     };
     const updatedEntries = [...contentEntries, newEntryWithId];
     setContentEntries(updatedEntries);
@@ -33,13 +34,21 @@ const ContentManager: React.FC = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2 style={{ marginBottom: '20px' }}>Content Manager</h2>
+      {/* Update the page title */}
+      <Typography variant="h4" component="h1" sx={{ mb: 4, color: 'secondary.main' }}>
+        Manage Content
+      </Typography>
       <ContentForm
         formConfig={formConfig}
         selectedCategory={selectedCategory}
         onSubmit={handleFormSubmit}
         onCategoryChange={handleCategoryChange}
       />
+      {/* Add a separator between the form and the content list */}
+      <Divider sx={{ my: 4 }} />
+      <Typography variant="h5" component="h2" sx={{ mb: 2 }}>
+        Content List
+      </Typography>
       <ContentList entries={contentEntries} />
     </div>
   );
