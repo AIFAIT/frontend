@@ -81,7 +81,7 @@ const App = () => {
                   <Divider />
                   <MenuItem component={Link} to="/manage-content" onClick={handleMenuClose}>Manage Content</MenuItem>
                   {/* Add an icon next to the "Documentation" link */}
-                  <MenuItem component={Link} to="https://github.com/AIFAIT/frontend/tree/main" target="_blank" rel="noopener noreferrer" onClick={handleMenuClose}>
+                  <MenuItem component={Link} to="https://github.com/AIFAIT/frontend/tree/main?tab=readme-ov-file#back-to-the-ai-tools-website" target="_blank" rel="noopener noreferrer" onClick={handleMenuClose}>
                     Documentation
                     <OpenInNewIcon fontSize="small" sx={{ ml: 1 }} />
                   </MenuItem>
@@ -94,7 +94,7 @@ const App = () => {
                 <Button color="inherit" component={Link} to="/blog">Blog</Button>
                 <Button color="secondary" component={Link} to="/manage-content">Manage Content</Button>
                 {/* Add an icon next to the "Documentation" link */}
-                <Button color="secondary" component={Link} to="https://github.com/AIFAIT/frontend/tree/main?tab=readme-ov-file#ai-tools-website" target="_blank" rel="noopener noreferrer">
+                <Button color="secondary" component={Link} to="https://github.com/AIFAIT/frontend/tree/main?tab=readme-ov-file#back-to-the-ai-tools-website" target="_blank" rel="noopener noreferrer">
                   Documentation
                   <OpenInNewIcon fontSize="small" sx={{ ml: 1 }} />
                 </Button>
