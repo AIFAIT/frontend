@@ -1,4 +1,4 @@
-[Back to the AI Tools Website](https://www.aifait.github.io)
+### [Back to the AI Tools Website](https://www.aifait.github.io)
 
 # AI Tools Website Documentation
 
