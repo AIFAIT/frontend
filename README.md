@@ -92,12 +92,17 @@ The website consists of a user-friendly interface built with React, providing a 
   - `SearchBar`: The main component that renders the search bar.
   - `handleSearch`: Function to handle the search input and trigger the search functionality.
 
-### `LLMIntegration.ts`
-- Description: The module that handles the integration with advanced language models (LLMs) to enable personalized content recommendations, answering user queries, and performing intelligent search.
-- Functions:
-  - `generateRecommendations`: Function to generate personalized content recommendations using LLMs.
-  - `answerQuery`: Function to answer user queries using LLMs.
-  - `performSearch`: Function to perform intelligent search based on user input and return relevant results.
+### `formConfig.ts`
+- Description: This file contains the configuration for the content entry form. It defines the structure and fields of the form based on the selected content type (AI tool, article, or blog post).
+- Usage: The formConfig object is imported and used in the ContentForm component to dynamically render the form fields based on the selected category.
+
+### `ContentEntry.ts`
+- Description: This file defines the ContentEntry interface, which represents the structure of a content entry object.
+- Usage: The ContentEntry interface is used throughout the application to define the shape of the content data.
+
+### `Tool.ts`
+- Description: This file defines the Tool interface, which represents the structure of an AI tool object.
+- Usage: The Tool interface is used in the AIToolsList component and other related components to define the shape of the AI tool data.
 
 ## Future State Architecture
 The AI Tools Website will undergo a significant transformation to incorporate advanced technologies and services, enhancing its capabilities and scalability. The future state architecture will leverage Google Cloud Platform (GCP) for its robust data engineering solutions and intuitive UI, along with Firebase, Cloud SQL, Prisma, GraphQL, Apollo, Langchain, Steamship, Cloud Run (Docker), Google Kubernetes Engine (Kubernetes), and pub-sub event-driven processes to create a robust and efficient enterprise-level application.
