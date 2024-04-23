@@ -1,4 +1,4 @@
-<u><a href="https://www.aifait.github.io" target="_blank">Back to the AI Tools Website</a></u>
+#### <u><a href="https://aifait.github.io/frontend/" target="_blank">Back to the AI Tools Website</a></u>
 
 # AI Tools Website Documentation
 
