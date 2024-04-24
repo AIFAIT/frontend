@@ -3,7 +3,7 @@
 # AI Tools Website Documentation
 
 ## Introduction
-The AI Tools Website is a cutting-edge platform that empowers businesses to navigate the complex landscape of AI software tools and find tailored solutions to enhance their operations. By leveraging advanced language models (LLMs) and a comprehensive knowledge base of AI tools, the website provides personalized recommendations and expert guidance to help users make informed decisions.
+The AI Tools Website is a cutting-edge platform that empowers businesses to navigate the complex landscape of AI software tools and find tailored solutions to enhance their operations. By leveraging advanced language models (LLMs) and a comprehensive knowledge base of AI tools and user profiles, the website provides personalized recommendations and expert guidance to help users make informed decisions.
 
 ## Project Overview
 The primary goal of the AI Tools Website is to assist users in understanding which software tools are available in the market and how they can be leveraged to improve their business processes. The platform goes beyond a simple database of tools and user profiles; it acts as an intelligent assistant that engages users through interactive chat sessions, learning about their specific needs and challenges.
@@ -33,7 +33,7 @@ The website consists of a user-friendly interface built with React, providing a 
 - Backend: Node.js, Express.js
 - Database: In-memory database (temporary solution)
 - AI and ML: Python, Langchain, Steamship
-- Deployment: Manual deployment to a hosting platform
+- Deployment: Github Actions to GitHub Pages
 
 ## File Structure and Function Descriptions
 
@@ -107,7 +107,7 @@ The website consists of a user-friendly interface built with React, providing a 
 - Usage: The Tool interface is used in the AIToolsList component and other related components to define the shape of the AI tool data.
 
 ## Future State Architecture
-The AI Tools Website will undergo a significant transformation to incorporate advanced technologies and services, enhancing its capabilities and scalability. The future state architecture will leverage Google Cloud Platform (GCP) for its robust data engineering solutions and intuitive UI, along with Firebase, Cloud SQL, Prisma, GraphQL, Apollo, Langchain, Steamship, Cloud Run (Docker), Google Kubernetes Engine (Kubernetes), and pub-sub event-driven processes to create a robust and efficient enterprise-level application.
+The AI Tools Website will undergo a significant transformation to incorporate advanced technologies and services, enhancing its capabilities and scalability. The future state architecture will leverage Google Cloud Platform (GCP) for its robust AI, data science, machine learning, and data engineering solutions. Along with Auth0, Cloud SQL, Prisma, GraphQL, Apollo, Langchain, Steamship, Cloud Storage, Cloud Run (Docker), Google Kubernetes Engine (Kubernetes), and pub-sub event-driven processes to create a robust and efficient enterprise-level application.
 
 ### Non-Technical Overview
 The future state of the AI Tools Website will provide a highly scalable and resilient platform that can handle a large number of concurrent users and data processing tasks. It will integrate with various cloud services and AI frameworks to deliver advanced features and functionality, such as real-time updates, serverless computing, and intelligent automation.
@@ -142,7 +142,7 @@ The AI Tools Website roadmap outlines the planned features and enhancements that
 
 7. **Continuous Improvement**: Regularly update the AI tools database, enhance the LLM's knowledge base, and refine the recommendation algorithms based on user feedback and industry trends.
 
-## LLM's Ability to Learn About Users
+## Target Use Case
 The AI Tools Website empowers businesses by learning about their unique needs through interactive conversations with its AI assistant. Powered by advanced language models, the assistant analyzes it's knowledge base of the user requirements against it's comprehensive knowledge base of AI tools to provide context to the LLM to generate personalized recommendations.
 
 For example, a contractor struggling with detailed estimations can engage in a conversation with the AI assistant. The assistant gathers information about the contractor's pain points and recommends specific AI tools to streamline the estimation process, reduce project scope creep, and enhance client communication.
